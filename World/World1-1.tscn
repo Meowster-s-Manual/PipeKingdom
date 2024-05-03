@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cum0upu4oxk0c"]
+
+[ext_resource type="Texture2D" uid="uid://d3vqpmjc4j1lf" path="res://World/bg-1-1.png" id="1_box71"]
+[ext_resource type="PackedScene" uid="uid://c36s77opkl7on" path="res://Character/pipeman.tscn" id="2_kfhg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3177"]
+size = Vector2(1102.27, 32.1694)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsie0"]
+size = Vector2(137.338, 88.3464)
+
+[node name="World1-1" type="Node2D"]
+
+[node name="Ground1" type="StaticBody2D" parent="."]
+position = Vector2(4562.51, 649)
+scale = Vector2(2.70443, 2.70443)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
+position = Vector2(-1134.07, -16.0847)
+shape = SubResource("RectangleShape2D_p3177")
+debug_color = Color(0.0509804, 0.176471, 0.294118, 0.419608)
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+position = Vector2(16901.5, 2404.18)
+scale = Vector2(7.31394, 7.31394)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-2379.22, -284.15)
+shape = SubResource("RectangleShape2D_nsie0")
+debug_color = Color(0.0509804, 0.176471, 0.294118, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(4565, 649)
+scale = Vector2(2.70443, 2.70443)
+texture = ExtResource("1_box71")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_kfhg2")]
+position = Vector2(287, 446)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

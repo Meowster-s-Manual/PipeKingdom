@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg62kabdeyx20"]
+
+[ext_resource type="Texture2D" uid="uid://bfu8ipa1ld53g" path="res://World/title-3.png" id="1_r6sdv"]
+[ext_resource type="Script" path="res://World/Button.gd" id="2_xw315"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7v6dn"]
+blend_mode = 1
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574.582, 323.475)
+scale = Vector2(4.48764, 2.87969)
+texture = ExtResource("1_r6sdv")
+region_enabled = true
+region_rect = Rect2(1, 10, 256, 224)
+
+[node name="Button" type="Button" parent="."]
+material = SubResource("CanvasItemMaterial_7v6dn")
+offset_left = 322.0
+offset_top = 386.0
+offset_right = 860.0
+offset_bottom = 421.0
+script = ExtResource("2_xw315")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
