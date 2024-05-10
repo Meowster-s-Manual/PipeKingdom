@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0hk8c333qqhl"
-path="res://.godot/imported/pipeman.png-b151677d7ff225cb969c4ad2adb62e0c.ctex"
+uid="uid://c2432dg13nc8q"
+path="res://.godot/imported/items.png-58d64048b3e051c1b7dd14b4848926d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/pipeman.png"
-dest_files=["res://.godot/imported/pipeman.png-b151677d7ff225cb969c4ad2adb62e0c.ctex"]
+source_file="res://Assets/Sprites/items.png"
+dest_files=["res://.godot/imported/items.png-58d64048b3e051c1b7dd14b4848926d2.ctex"]
 
 [params]
 

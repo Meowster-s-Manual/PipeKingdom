@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c36s77opkl7on"]
 
-[ext_resource type="Texture2D" uid="uid://d0hk8c333qqhl" path="res://Character/pipeman.png" id="1_08ewk"]
+[ext_resource type="Texture2D" uid="uid://d0hk8c333qqhl" path="res://Assets/Sprites/pipeman.png" id="1_08ewk"]
 [ext_resource type="Script" path="res://Character/movement.gd" id="1_mcu3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83rm6"]

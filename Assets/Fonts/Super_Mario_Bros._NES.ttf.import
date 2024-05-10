@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c46twermmj6vn"
-path="res://.godot/imported/Super_Mario_Bros._NES.ttf-595dbf019b1697f6a7687c2f4dc3150d.fontdata"
+path="res://.godot/imported/Super_Mario_Bros._NES.ttf-1e71dbcad76ac63084cfd2cea3639e08.fontdata"
 
 [deps]
 
-source_file="res://UI/Super_Mario_Bros._NES.ttf"
-dest_files=["res://.godot/imported/Super_Mario_Bros._NES.ttf-595dbf019b1697f6a7687c2f4dc3150d.fontdata"]
+source_file="res://Assets/Fonts/Super_Mario_Bros._NES.ttf"
+dest_files=["res://.godot/imported/Super_Mario_Bros._NES.ttf-1e71dbcad76ac63084cfd2cea3639e08.fontdata"]
 
 [params]
 

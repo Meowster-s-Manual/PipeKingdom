@@ -1,14 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkn1ex37m57hm"]
+[gd_scene load_steps=2 format=3 uid="uid://bkn1ex37m57hm"]
 
-[ext_resource type="FontFile" uid="uid://c46twermmj6vn" path="res://UI/Super_Mario_Bros._NES.ttf" id="1_yp6q3"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lwl5p"]
-font = ExtResource("1_yp6q3")
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_63wvs"]
-font = ExtResource("1_yp6q3")
-font_size = 26
+[ext_resource type="LabelSettings" uid="uid://vf4m8s3nj3mp" path="res://UI/Default.tres" id="1_8rl0j"]
 
 [node name="Pui" type="Control"]
 layout_mode = 3
@@ -18,32 +10,76 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 45.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -425.0
+offset_top = 20.0
+offset_right = 425.0
+offset_bottom = 70.0
 grow_horizontal = 2
-columns = 4
+theme_override_constants/separation = 150
 
-[node name="Label" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "PIPEMAN
-"
-label_settings = SubResource("LabelSettings_lwl5p")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="GridContainer"]
+[node name="Score" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Coins"
-label_settings = SubResource("LabelSettings_63wvs")
+size_flags_vertical = 0
 
-[node name="Label3" type="Label" parent="GridContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/Score"]
 layout_mode = 2
-text = "World"
+text = "PIPEMAN"
+label_settings = ExtResource("1_8rl0j")
+vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="GridContainer"]
+[node name="Value" type="Label" parent="HBoxContainer/Score"]
 layout_mode = 2
-text = "Time"
+text = "00000000"
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1
+
+[node name="Coins" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Coins"]
+layout_mode = 2
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1
+
+[node name="Total" type="Label" parent="HBoxContainer/Coins"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "x00"
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1
+
+[node name="Level" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Level"]
+layout_mode = 2
+text = "LEVEL"
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/Level"]
+layout_mode = 2
+text = "1-1"
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1
+
+[node name="Time" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Time"]
+layout_mode = 2
+text = "TIME"
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="HBoxContainer/Time"]
+layout_mode = 2
+text = "300"
+label_settings = ExtResource("1_8rl0j")
+horizontal_alignment = 1

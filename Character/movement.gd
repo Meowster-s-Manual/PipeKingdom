@@ -10,6 +10,11 @@ var movement_speed = SPEED
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _camera_node = $MainCamera
+var screen_size
+
+func _ready():
+	screen_size = get_viewport_rect().size
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -42,5 +47,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		_animated_sprite.play("idle")
+
+	position.x = clamp(position.x, _camera_node.limit_left, _camera_node.limit_left + screen_size.x)
 
 	move_and_slide()

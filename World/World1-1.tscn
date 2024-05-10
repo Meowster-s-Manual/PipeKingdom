@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cum0upu4oxk0c"]
 
-[ext_resource type="Texture2D" uid="uid://d3vqpmjc4j1lf" path="res://World/bg-1-1.png" id="1_box71"]
+[ext_resource type="Texture2D" uid="uid://d3vqpmjc4j1lf" path="res://Assets/Background/bg-1-1.png" id="1_box71"]
 [ext_resource type="PackedScene" uid="uid://c36s77opkl7on" path="res://Character/pipeman.tscn" id="2_kfhg2"]
 [ext_resource type="Script" path="res://World/Camera2D.gd" id="3_p5ikt"]
 [ext_resource type="PackedScene" uid="uid://bkn1ex37m57hm" path="res://UI/PUI.tscn" id="4_fqjak"]
@@ -27,7 +27,7 @@ texture = ExtResource("1_box71")
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_kfhg2")]
 position = Vector2(292, 438)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="MainCamera" type="Camera2D" parent="CharacterBody2D"]
 limit_top = 0
 limit_bottom = 720
 script = ExtResource("3_p5ikt")
