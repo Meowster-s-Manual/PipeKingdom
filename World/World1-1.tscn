@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cum0upu4oxk0c"]
+[gd_scene load_steps=6 format=3 uid="uid://cum0upu4oxk0c"]
 
 [ext_resource type="Texture2D" uid="uid://d3vqpmjc4j1lf" path="res://Assets/Background/bg-1-1.png" id="1_box71"]
 [ext_resource type="PackedScene" uid="uid://c36s77opkl7on" path="res://Character/pipeman.tscn" id="2_kfhg2"]
@@ -7,9 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3177"]
 size = Vector2(932.369, 27.7537)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsie0"]
-size = Vector2(14.2519, 97.9063)
 
 [node name="World1-1" type="Node2D"]
 
@@ -39,13 +36,4 @@ scale = Vector2(3.549, 3.459)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
 position = Vector2(-84.9503, -2.60191)
 shape = SubResource("RectangleShape2D_p3177")
-debug_color = Color(0.0509804, 0.176471, 0.294118, 0.419608)
-
-[node name="WallLeft" type="StaticBody2D" parent="."]
-position = Vector2(16901.5, 2404.18)
-scale = Vector2(7.31394, 7.31394)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
-position = Vector2(-2322.48, -280.038)
-shape = SubResource("RectangleShape2D_nsie0")
 debug_color = Color(0.0509804, 0.176471, 0.294118, 0.419608)
