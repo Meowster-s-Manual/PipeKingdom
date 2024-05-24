@@ -47,7 +47,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		_animated_sprite.play("idle")
-
+	
+	# set limit for pipeman to move out of Camera
 	position.x = clamp(position.x, _camera_node.limit_left, _camera_node.limit_left + screen_size.x)
 
 	move_and_slide()
