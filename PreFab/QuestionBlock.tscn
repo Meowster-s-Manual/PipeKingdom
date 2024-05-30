@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://db6wtt31cv3jc"]
+
+[ext_resource type="Texture2D" uid="uid://c8xy2melveskw" path="res://Assets/Tilemap/tiles-3.png" id="1_8n6iy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_air4w"]
+atlas = ExtResource("1_8n6iy")
+region = Rect2(416, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swjpn"]
+atlas = ExtResource("1_8n6iy")
+region = Rect2(400, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61l2n"]
+atlas = ExtResource("1_8n6iy")
+region = Rect2(384, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hcev"]
+atlas = ExtResource("1_8n6iy")
+region = Rect2(432, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8ym7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_air4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swjpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61l2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61l2n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hcev")
+}],
+"loop": true,
+"name": &"used",
+"speed": 5.0
+}]
+
+[node name="QuestionBlock" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i8ym7")
+animation = &"used"
+frame_progress = 0.446324
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
