@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ctyl36j63iawm"]
+
+[ext_resource type="Texture2D" uid="uid://dbc8c6wme6wpq" path="res://Assets/Sprites/block_debris.png" id="1_cwcvu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fe76"]
+atlas = ExtResource("1_cwcvu")
+region = Rect2(18, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q3nh"]
+atlas = ExtResource("1_cwcvu")
+region = Rect2(9, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iptwo"]
+atlas = ExtResource("1_cwcvu")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ago5e"]
+atlas = ExtResource("1_cwcvu")
+region = Rect2(27, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fe76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q3nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iptwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ago5e")
+}],
+"loop": true,
+"name": &"break",
+"speed": 2.0
+}]
