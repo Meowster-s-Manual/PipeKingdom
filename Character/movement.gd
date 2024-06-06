@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const RUN = 600.0
 const JUMP_VELOCITY = -400.0
@@ -11,6 +10,7 @@ var movement_speed = SPEED
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _camera_node = $MainCamera
+@onready var _game_manager = %GameManager
 var screen_size
 
 func _ready():
@@ -52,3 +52,6 @@ func _physics_process(delta):
 	position.x = clamp(position.x, _camera_node.limit_left, _camera_node.limit_left + screen_size.x)
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		_game_manager.break_block(collision.get_collider())

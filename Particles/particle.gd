@@ -1,7 +1,7 @@
 class_name Particle
 extends Node2D
 
-@export var lifespan_seconds: float = 3.0
+@export var lifespan_seconds: float = .8
 @export var gravity: float = 1300.0
 @export var velocity: Vector2 = Vector2.ZERO
 const SPEED: float = sqrt(7200)

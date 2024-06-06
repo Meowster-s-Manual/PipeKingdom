@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://db6wtt31cv3jc"]
+[gd_scene load_steps=8 format=3 uid="uid://db6wtt31cv3jc"]
 
 [ext_resource type="Texture2D" uid="uid://c8xy2melveskw" path="res://Assets/Tilemap/tiles-3.png" id="1_8n6iy"]
 
@@ -35,7 +35,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -46,11 +46,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="QuestionBlock" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nlgm"]
+size = Vector2(16, 16)
+
+[node name="QuestionBlock" type="StaticBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i8ym7")
-animation = &"used"
-frame_progress = 0.446324
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.816752
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6nlgm")
