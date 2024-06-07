@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const RUN = 600.0
-const JUMP_VELOCITY = -400.0
-const SPEED_INCREMENT = 8
+const SPEED = 150.0
+const RUN = 300.0
+const JUMP_VELOCITY = -250.0
+const SPEED_INCREMENT = 2
 var movement_speed = SPEED
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -54,4 +54,4 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		_game_manager.break_block(collision.get_collider())
+		_game_manager.break_block(collision.get_collider(), collision.get_angle())
