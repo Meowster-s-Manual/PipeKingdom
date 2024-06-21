@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cum0upu4oxk0c"]
+[gd_scene load_steps=13 format=3 uid="uid://cum0upu4oxk0c"]
 
 [ext_resource type="Texture2D" uid="uid://d3vqpmjc4j1lf" path="res://Assets/Background/bg-1-1.png" id="1_box71"]
 [ext_resource type="Script" path="res://World/GameManager.gd" id="1_exviu"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://buipr1rspes8l" path="res://Assets/BGM/WAV_02 An unlikely Hero (Hero Theme).wav" id="6_uy0fa"]
 [ext_resource type="PackedScene" uid="uid://cfuy70a80w8lx" path="res://PreFab/BrickBlock.tscn" id="8_xgj7m"]
 [ext_resource type="PackedScene" uid="uid://db6wtt31cv3jc" path="res://PreFab/QuestionBlock.tscn" id="9_u3lgu"]
+[ext_resource type="PackedScene" uid="uid://dbwdfy6weq3vr" path="res://PreFab/fireball.tscn" id="10_fm6p7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_042gn"]
 texture = ExtResource("5_3wrl2")
@@ -2070,3 +2071,6 @@ position = Vector2(2088, 88)
 
 [node name="QuestionBlock13" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(2728, 152)
+
+[node name="Fireball" parent="." instance=ExtResource("10_fm6p7")]
+position = Vector2(152, 187)
