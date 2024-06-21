@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://3imikqb3jiqw"]
+
+[ext_resource type="Texture2D" uid="uid://c2432dg13nc8q" path="res://Assets/Sprites/items.png" id="1_trs3y"]
+[ext_resource type="Script" path="res://PreFab/Star.gd" id="1_ubuix"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybu2o"]
+atlas = ExtResource("1_trs3y")
+region = Rect2(0, 84, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5kxo"]
+atlas = ExtResource("1_trs3y")
+region = Rect2(30, 84, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obps4"]
+atlas = ExtResource("1_trs3y")
+region = Rect2(60, 84, 26, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gf7j"]
+atlas = ExtResource("1_trs3y")
+region = Rect2(90, 84, 26, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37m3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybu2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5kxo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obps4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gf7j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4pr8n"]
+radius = 6.0
+height = 18.0
+
+[node name="Star" type="RigidBody2D"]
+lock_rotation = true
+script = ExtResource("1_ubuix")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -4)
+sprite_frames = SubResource("SpriteFrames_37m3j")
+autoplay = "default"
+frame_progress = 0.471754
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4pr8n")
