@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cum0upu4oxk0c"]
+[gd_scene load_steps=14 format=3 uid="uid://cum0upu4oxk0c"]
 
 [ext_resource type="Texture2D" uid="uid://d3vqpmjc4j1lf" path="res://Assets/Background/bg-1-1.png" id="1_box71"]
 [ext_resource type="Script" path="res://World/GameManager.gd" id="1_exviu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cfuy70a80w8lx" path="res://PreFab/BrickBlock.tscn" id="8_xgj7m"]
 [ext_resource type="PackedScene" uid="uid://db6wtt31cv3jc" path="res://PreFab/QuestionBlock.tscn" id="9_u3lgu"]
 [ext_resource type="PackedScene" uid="uid://dbwdfy6weq3vr" path="res://PreFab/fireball.tscn" id="10_fm6p7"]
+[ext_resource type="PackedScene" uid="uid://roveo41ewmo8" path="res://PreFab/Red mushroom.tscn" id="11_5ahl2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_042gn"]
 texture = ExtResource("5_3wrl2")
@@ -1910,6 +1911,10 @@ script = ExtResource("1_exviu")
 layer = 2
 
 [node name="Pui" parent="CanvasLayer" instance=ExtResource("4_fqjak")]
+offset_left = 22.0
+offset_top = -1.0
+offset_right = 22.0
+offset_bottom = -1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -2074,3 +2079,6 @@ position = Vector2(2728, 152)
 
 [node name="Fireball" parent="." instance=ExtResource("10_fm6p7")]
 position = Vector2(152, 187)
+
+[node name="RedMushroom" parent="." instance=ExtResource("11_5ahl2")]
+position = Vector2(334, 136)
