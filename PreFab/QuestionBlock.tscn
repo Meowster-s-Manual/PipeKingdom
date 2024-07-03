@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://db6wtt31cv3jc"]
+[gd_scene load_steps=9 format=3 uid="uid://db6wtt31cv3jc"]
 
 [ext_resource type="Texture2D" uid="uid://c8xy2melveskw" path="res://Assets/Tilemap/tiles-3.png" id="1_8n6iy"]
+[ext_resource type="Script" path="res://PreFab/QuestionBlock.gd" id="1_wj7dh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_air4w"]
 atlas = ExtResource("1_8n6iy")
@@ -50,12 +51,12 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="QuestionBlock" type="StaticBody2D"]
+script = ExtResource("1_wj7dh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_i8ym7")
-animation = &"idle"
+animation = &"used"
 autoplay = "idle"
-frame_progress = 0.816752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6nlgm")

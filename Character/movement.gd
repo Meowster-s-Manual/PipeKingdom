@@ -55,3 +55,4 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		_game_manager.break_block(collision.get_collider(), collision.get_angle())
+		_game_manager.hit_question_block(collision.get_collider(), collision.get_angle())
