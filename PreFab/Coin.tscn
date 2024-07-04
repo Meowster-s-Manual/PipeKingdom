@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://brcx8pyqcdeko"]
+[gd_scene load_steps=9 format=3 uid="uid://brcx8pyqcdeko"]
 
 [ext_resource type="Texture2D" uid="uid://7ey5d1nlf6ho" path="res://Assets/Sprites/items-objects.png" id="1_he3ww"]
+[ext_resource type="Script" path="res://PreFab/Coin.gd" id="1_ucpph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ev8nf"]
 atlas = ExtResource("1_he3ww")
@@ -44,6 +45,7 @@ height = 14.0
 
 [node name="Coin" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_ucpph")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4608s")

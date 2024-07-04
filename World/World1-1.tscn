@@ -2014,15 +2014,19 @@ ITEM = "Coin"
 
 [node name="QuestionBlock2" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(344, 152)
+ITEM = "Shroom"
 
 [node name="QuestionBlock3" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(376, 152)
+ITEM = "Coin"
 
 [node name="QuestionBlock4" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(360, 88)
+ITEM = "Coin"
 
 [node name="QuestionBlock5" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(1256, 152)
+ITEM = "Flowy"
 
 [node name="QuestionBlock6" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(1512, 88)
@@ -2136,3 +2140,5 @@ offset_top = 244.0
 offset_right = 1098.0
 offset_bottom = 506.0
 color = Color(0, 0, 0, 1)
+
+[connection signal="get_coin" from="GameManager" to="CanvasLayer/Pui" method="_on_game_manager_get_coin"]

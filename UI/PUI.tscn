@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkn1ex37m57hm"]
+[gd_scene load_steps=4 format=3 uid="uid://bkn1ex37m57hm"]
 
 [ext_resource type="LabelSettings" uid="uid://vf4m8s3nj3mp" path="res://UI/Default.tres" id="1_8rl0j"]
+[ext_resource type="Script" path="res://UI/PUI.gd" id="1_mks4i"]
+[ext_resource type="Script" path="res://UI/TotalCoin.gd" id="2_3gj3x"]
 
 [node name="Pui" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mks4i")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -47,12 +50,13 @@ layout_mode = 2
 label_settings = ExtResource("1_8rl0j")
 horizontal_alignment = 1
 
-[node name="Total" type="Label" parent="HBoxContainer/Coins"]
+[node name="TotalCoin" type="Label" parent="HBoxContainer/Coins"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "x00"
 label_settings = ExtResource("1_8rl0j")
 horizontal_alignment = 1
+script = ExtResource("2_3gj3x")
 
 [node name="Level" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
