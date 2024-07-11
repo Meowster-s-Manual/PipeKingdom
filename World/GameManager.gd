@@ -7,6 +7,7 @@ signal get_coin
 
 var BrickBreak = preload("res://Particles/BrickBreak.tscn")
 var Coin = preload("res://PreFab/Coin.tscn")
+var Shroom = preload("res://PreFab/Red mushroom.tscn")
 
 func break_block(CollisionObject, angle):
 	if _Bricks.get_children().has(CollisionObject) == true:
@@ -28,3 +29,14 @@ func hit_question_block(CollisionObject, angle):
 				coin.position = CollisionObject.get_position()
 				_QuestionBlocks.add_child(coin)
 				CollisionObject.find_children("AnimatedSprite2D")[0].play("used")
+			if (CollisionObject.ITEM == "Shroom" && CollisionObject.USED == false):
+				var shroom: Node2D = Shroom.instantiate()
+				shroom.find_children("CollisionShape2D")[0].disabled = true
+				shroom.set_z_index(-1)
+				shroom.position = CollisionObject.get_position()
+				_QuestionBlocks.add_child(shroom)
+				CollisionObject.find_children("AnimatedSprite2D")[0].play("used")
+				
+				
+				
+				
