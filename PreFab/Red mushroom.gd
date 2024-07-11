@@ -9,7 +9,6 @@ var spawn_timer = SPAWN_TIMER
 var check_spawn = false
 
 func _physics_process(delta):
-	print(spawn_timer)
 	if spawn_timer == SPAWN_TIMER:
 		set_gravity_scale(0)
 		set_linear_velocity(Vector2(0,-10))

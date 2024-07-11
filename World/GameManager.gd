@@ -30,6 +30,7 @@ func hit_question_block(CollisionObject, angle):
 				_QuestionBlocks.add_child(coin)
 				CollisionObject.find_children("AnimatedSprite2D")[0].play("used")
 			if (CollisionObject.ITEM == "Shroom" && CollisionObject.USED == false):
+				CollisionObject.USED = true
 				var shroom: Node2D = Shroom.instantiate()
 				shroom.find_children("CollisionShape2D")[0].disabled = true
 				shroom.set_z_index(-1)
