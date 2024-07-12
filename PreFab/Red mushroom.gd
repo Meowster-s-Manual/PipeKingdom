@@ -22,9 +22,13 @@ func _physics_process(delta):
 	if check_spawn:
 		var collision = move_and_collide(velocity * delta)
 		if collision:
+			if collision.get_collider().name == "Pipeman" && !collision.get_collider().big:
+				collision.get_collider().grow_pipeman()
+				queue_free()
 			velocity = velocity.bounce(collision.get_normal())
 
 		# destry self after time pass
 		timer -= 1
 		if (timer == 0):
 			queue_free()
+
