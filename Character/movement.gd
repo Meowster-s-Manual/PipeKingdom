@@ -15,9 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _big_collision = $BigCollision
 
 var screen_size
-
 var big = false
-var growing = false
+var fireman = false
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -30,12 +29,13 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY* 1.75
+		velocity.y = JUMP_VELOCITY * 1.75
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Left", "Right")
-	if growing:
+
+	if _animated_sprite.animation == "growing":
 		pass
 	elif direction < 0:
 		if Input.is_action_pressed("Run") && movement_speed < RUN:
@@ -45,7 +45,7 @@ func _physics_process(delta):
 		velocity.x = direction * movement_speed
 		_animated_sprite.flip_h = true
 		if big:
-			_animated_sprite.play("big_movement")        
+			_animated_sprite.play("big_movement")
 		else:	
 			_animated_sprite.play("movement")                                 
 	elif direction > 0:
@@ -65,28 +65,46 @@ func _physics_process(delta):
 			_animated_sprite.play("big_idle")
 		else:
 			_animated_sprite.play("idle")
-	
+
 	# set limit for pipeman to move out of Camera
 	position.x = clamp(position.x, _camera_node.limit_left, _camera_node.limit_left + screen_size.x)
 
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		_game_manager.break_block(collision.get_collider(), collision.get_angle())
-		_game_manager.hit_question_block(collision.get_collider(), collision.get_angle())
+		print(collision.get_collider().name)
+		if big:
+			_game_manager.break_block(collision.get_collider(), collision.get_angle(), true)
+			_game_manager.hit_question_block(collision.get_collider(), collision.get_angle(), true)
+		else:
+			_game_manager.break_block(collision.get_collider(), collision.get_angle(), false)
+			_game_manager.hit_question_block(collision.get_collider(), collision.get_angle(), false)
 		
+		if collision.get_collider().name == "FireFlower":
+			if collision.get_collider().check_spawn:
+				collision.get_collider().queue_free()
+				fire_pipeman()
 
 func grow_pipeman():
 	get_tree().paused = true
 	_small_collision.set_disabled(true)
 	_big_collision.set_disabled(false)
-	position.y -= 4
-	growing = true
+	set_physics_process(false)
+	position.y -= 8
 	_animated_sprite.play("growing")
 
+func fire_pipeman():
+	_animated_sprite.modulate = Color("red")
+	print("test")
+	#pass
+	#fireman = true
+	#get_tree().paused = true
+	#set_physics_process(false)
 
 func _on_animated_sprite_2d_animation_finished():
-	get_tree().paused = false
-	growing = false
-	big = true
+	if _animated_sprite.animation == "growing":
+		set_physics_process(true)
+		get_tree().paused = false
+		big = true
+		_animated_sprite.play("big_idle")
 

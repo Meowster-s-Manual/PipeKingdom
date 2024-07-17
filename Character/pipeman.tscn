@@ -277,7 +277,7 @@ radius = 7.66667
 height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_udd2i"]
-radius = 8.0
+radius = 7.0
 height = 32.0
 
 [node name="pipeman" type="CharacterBody2D"]
@@ -286,7 +286,8 @@ script = ExtResource("1_mcu3f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o44eq")
-animation = &"growing"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="SmallCollision" type="CollisionShape2D" parent="."]
 z_index = -1
