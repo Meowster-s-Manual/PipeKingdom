@@ -9,6 +9,7 @@ var BrickBreak = preload("res://Particles/BrickBreak.tscn")
 var Coin = preload("res://PreFab/Coin.tscn")
 var Shroom = preload("res://PreFab/Red mushroom.tscn")
 var Flower = preload("res://PreFab/fire flower.tscn")
+var Star = preload("res://PreFab/Star.tscn")
 
 func break_block(CollisionObject, angle, big):
 	if _Bricks.get_children().has(CollisionObject) == true\
@@ -51,4 +52,12 @@ func hit_question_block(CollisionObject, angle, big):
 					shroom.set_z_index(-1)
 					shroom.position = CollisionObject.get_position()
 					_QuestionBlocks.add_child(shroom)
+				CollisionObject.find_children("AnimatedSprite2D")[0].play("used")
+			"Star":
+				CollisionObject.USED = true
+				var star: Node2D = Star.instantiate()
+				star.find_children("CollisionShape2D")[0].disabled = true
+				star.set_z_index(-1)
+				star.position = CollisionObject.get_position()
+				_QuestionBlocks.add_child(star)
 				CollisionObject.find_children("AnimatedSprite2D")[0].play("used")

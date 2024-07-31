@@ -17,6 +17,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var screen_size
 var big = false
 var fireman = false
+var star = false
+var star_counter = 300
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -34,6 +36,17 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("Left", "Right")
+	
+	if star:
+		if star_counter % 8 == 0:
+			_animated_sprite.modulate = Color(1, 5, 5, 1)
+		elif star_counter % 4 == 0:
+			_animated_sprite.modulate = Color(5, 1, 5, 1)
+		star_counter -= 1
+		
+		if star_counter == 0:
+			_animated_sprite.modulate = Color(1, 1, 1, 1)
+			star = false
 
 	if _animated_sprite.animation == "growing":
 		pass
@@ -72,7 +85,6 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		print(collision.get_collider().name)
 		if big:
 			_game_manager.break_block(collision.get_collider(), collision.get_angle(), true)
 			_game_manager.hit_question_block(collision.get_collider(), collision.get_angle(), true)
@@ -84,6 +96,11 @@ func _physics_process(delta):
 			if collision.get_collider().check_spawn:
 				collision.get_collider().queue_free()
 				fire_pipeman()
+				
+		if collision.get_collider().name == "Star":
+			if collision.get_collider().check_spawn:
+				collision.get_collider().queue_free()
+				star = true
 
 func grow_pipeman():
 	get_tree().paused = true
