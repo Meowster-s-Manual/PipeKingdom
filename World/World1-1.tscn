@@ -2030,10 +2030,11 @@ ITEM = "Shroom"
 
 [node name="QuestionBlock6" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(1512, 88)
+ITEM = "Star"
 
 [node name="QuestionBlock7" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(1704, 152)
-ITEM = "Star"
+ITEM = "Coin"
 
 [node name="QuestionBlock8" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(1752, 152)
