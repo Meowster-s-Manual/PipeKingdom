@@ -1914,7 +1914,7 @@ offset_top = -1.0
 offset_right = 22.0
 offset_bottom = -1.0
 
-[node name="Bricks" type="Node" parent="."]
+[node name="Bricks" type="Node" parent="." groups=["world"]]
 
 [node name="BrickBlock" parent="Bricks" instance=ExtResource("8_xgj7m")]
 position = Vector2(328, 152)
@@ -2006,7 +2006,7 @@ position = Vector2(2712, 152)
 [node name="BrickBlock30" parent="Bricks" instance=ExtResource("8_xgj7m")]
 position = Vector2(2744, 152)
 
-[node name="QuestionBlocks" type="Node" parent="."]
+[node name="QuestionBlocks" type="Node" parent="." groups=["world"]]
 
 [node name="QuestionBlock" parent="QuestionBlocks" instance=ExtResource("9_u3lgu")]
 position = Vector2(264, 152)

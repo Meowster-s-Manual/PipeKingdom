@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var Fireball = preload("res://PreFab/fireball.tscn")
+
 const SPEED = 150.0
 const RUN = 300.0
 const JUMP_VELOCITY = -250.0
@@ -19,6 +21,9 @@ var big = false
 var fireman = false
 var star = false
 var star_counter = 300
+const COUNTDOWN = 20
+
+var shoot_cooldown = COUNTDOWN
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -28,6 +33,12 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += (1.4 * gravity) * delta
+
+	shoot_cooldown -= 1
+	# Handle shooting
+	if Input.is_action_just_pressed("Shoot") && shoot_cooldown <= 0 && fireman:
+		shoot()
+		shoot_cooldown = COUNTDOWN
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -112,11 +123,15 @@ func grow_pipeman():
 
 func fire_pipeman():
 	_animated_sprite.modulate = Color("red")
-	print("test")
-	#pass
-	#fireman = true
+	fireman = true
 	#get_tree().paused = true
 	#set_physics_process(false)
+
+func shoot():
+	print("shoot")
+	var iFB : RigidBody2D = Fireball.instantiate()
+	iFB.position  = $Marker2D.position
+	add_child(iFB)
 
 func _on_animated_sprite_2d_animation_finished():
 	if _animated_sprite.animation == "growing":
