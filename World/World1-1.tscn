@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cum0upu4oxk0c"]
+[gd_scene load_steps=17 format=3 uid="uid://cum0upu4oxk0c"]
 
 [ext_resource type="Script" path="res://World/GameManager.gd" id="1_exviu"]
 [ext_resource type="PackedScene" uid="uid://c36s77opkl7on" path="res://Character/pipeman.tscn" id="2_kfhg2"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cfuy70a80w8lx" path="res://PreFab/BrickBlock.tscn" id="8_xgj7m"]
 [ext_resource type="PackedScene" uid="uid://db6wtt31cv3jc" path="res://PreFab/QuestionBlock.tscn" id="9_u3lgu"]
 [ext_resource type="PackedScene" uid="uid://brcx8pyqcdeko" path="res://PreFab/Coin.tscn" id="10_ig8e0"]
+[ext_resource type="Script" path="res://World/EnterPortal.gd" id="10_ot65d"]
+[ext_resource type="Script" path="res://World/ExitPortal.gd" id="11_ix4fh"]
+[ext_resource type="PackedScene" uid="uid://hcesr4fg33kc" path="res://Enemy/MushroomBoy.tscn" id="12_h3xuv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_042gn"]
 texture = ExtResource("5_3wrl2")
@@ -1899,6 +1902,12 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.360784, 0.580392, 0.988235, 1)
 sources/0 = SubResource("TileSetAtlasSource_042gn")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b05r2"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48keo"]
+size = Vector2(5, 20)
+
 [node name="World1-1" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -2140,5 +2149,26 @@ layer_1/tile_data = PackedInt32Array(0, 196608, 21, 65536, 196608, 21, 131072, 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uy0fa")
 autoplay = true
+
+[node name="EnterPortal" type="Area2D" parent="."]
+position = Vector2(624, 161)
+script = ExtResource("10_ot65d")
+target_location = Vector2(785, 270)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnterPortal"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_b05r2")
+
+[node name="ExitPortal" type="Area2D" parent="."]
+position = Vector2(980, 433)
+script = ExtResource("11_ix4fh")
+target_location = Vector2(928, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitPortal"]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_48keo")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_h3xuv")]
+position = Vector2(328, 198)
 
 [connection signal="get_coin" from="GameManager" to="CanvasLayer/Pui" method="_on_game_manager_get_coin"]

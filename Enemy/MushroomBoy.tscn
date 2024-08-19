@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://hcesr4fg33kc"]
+[gd_scene load_steps=8 format=3 uid="uid://hcesr4fg33kc"]
 
 [ext_resource type="Texture2D" uid="uid://cdniooavwwrw" path="res://Assets/Sprites/enemies-4.png" id="1_3tf5m"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rmryi"]
+[ext_resource type="Script" path="res://Enemy/MushroomBoy.gd" id="1_kyub7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxjtx"]
 atlas = ExtResource("1_3tf5m")
@@ -38,12 +37,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fhrtr"]
+radius = 8.06226
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rmryi")
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_kyub7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_5a0wu")
 animation = &"Movement"
+autoplay = "Movement"
+frame_progress = 0.161232
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_fhrtr")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 0)
+target_position = Vector2(1, 0)
