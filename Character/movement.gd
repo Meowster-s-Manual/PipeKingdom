@@ -22,6 +22,7 @@ var fireman = false
 var star = false
 var star_counter = 300
 const COUNTDOWN = 20
+var direction
 
 var shoot_cooldown = COUNTDOWN
 
@@ -46,7 +47,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("Left", "Right")
+	direction = Input.get_axis("Left", "Right")
 	
 	if star:
 		if star_counter % 8 == 0:
@@ -130,8 +131,15 @@ func fire_pipeman():
 func shoot():
 	print("shoot")
 	var iFB : RigidBody2D = Fireball.instantiate()
-	iFB.position  = $Marker2D.position
-	add_child(iFB)
+	owner.add_child(iFB)
+	var rotation = get_rotation()
+	iFB.transform = $RMarker2D.global_transform
+	if _animated_sprite.flip_h:
+		rotation += PI
+		iFB.transform = $LMarker2D.global_transform
+	iFB.set_dir(rotation)
+	var root_scene = get_tree().current_scene
+	print(iFB.position)
 
 func _on_animated_sprite_2d_animation_finished():
 	if _animated_sprite.animation == "growing":
