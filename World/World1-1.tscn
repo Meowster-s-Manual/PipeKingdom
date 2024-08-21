@@ -2168,7 +2168,16 @@ target_location = Vector2(928, 140)
 position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_48keo")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("12_h3xuv")]
+[node name="Node" type="Node" parent="."]
+
+[node name="Enemy" parent="Node" instance=ExtResource("12_h3xuv")]
 position = Vector2(328, 198)
 
+[node name="Enemy2" parent="Node" instance=ExtResource("12_h3xuv")]
+position = Vector2(874, 200)
+
+[node name="Enemy3" parent="Node" instance=ExtResource("12_h3xuv")]
+position = Vector2(2781, 200)
+
+[connection signal="get_coin" from="GameManager" to="GameManager" method="_on_get_coin"]
 [connection signal="get_coin" from="GameManager" to="CanvasLayer/Pui" method="_on_game_manager_get_coin"]

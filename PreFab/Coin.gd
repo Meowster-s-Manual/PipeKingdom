@@ -5,11 +5,14 @@ extends RigidBody2D
 var timer = 34
 var impulse = true
 
+var currentScene
+
+func _ready():
+	currentScene = get_tree().current_scene
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	# activate only when hitting a Question Block
-	if (FROM_QB):
+	if FROM_QB:
 		gravity_scale = 1
 		if (impulse):
 			impulse = false
@@ -18,5 +21,3 @@ func _physics_process(delta):
 		timer -= 1
 		if (timer == 0):
 			queue_free()
-	
-

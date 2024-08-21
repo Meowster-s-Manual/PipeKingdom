@@ -20,6 +20,33 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxjtx")
 }],
 "loop": true,
 "name": &"Death",
@@ -38,7 +65,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhrtr"]
-radius = 8.06226
+radius = 8.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_kyub7")
@@ -48,7 +75,6 @@ position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_5a0wu")
 animation = &"Movement"
 autoplay = "Movement"
-frame_progress = 0.161232
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -57,3 +83,7 @@ shape = SubResource("CircleShape2D_fhrtr")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(8, 0)
 target_position = Vector2(1, 0)
+
+[node name="DeathHit" type="RayCast2D" parent="."]
+position = Vector2(0, -9)
+target_position = Vector2(0, -1)
