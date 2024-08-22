@@ -64,3 +64,6 @@ func hit_question_block(CollisionObject, angle, big):
 
 func hit_coin():
 	get_coin.emit()
+
+func death():
+	get_tree().reload_current_scene()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cum0upu4oxk0c"]
+[gd_scene load_steps=20 format=3 uid="uid://cum0upu4oxk0c"]
 
 [ext_resource type="Script" path="res://World/GameManager.gd" id="1_exviu"]
 [ext_resource type="PackedScene" uid="uid://c36s77opkl7on" path="res://Character/pipeman.tscn" id="2_kfhg2"]
@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://World/EnterPortal.gd" id="10_ot65d"]
 [ext_resource type="Script" path="res://World/ExitPortal.gd" id="11_ix4fh"]
 [ext_resource type="PackedScene" uid="uid://hcesr4fg33kc" path="res://Enemy/MushroomBoy.tscn" id="12_h3xuv"]
-[ext_resource type="PackedScene" path="res://PreFab/Pole.tscn" id="13_732x2"]
-[ext_resource type="PackedScene" path="res://PreFab/Flag.tscn" id="14_urmn3"]
+[ext_resource type="PackedScene" uid="uid://brev3avvy8bay" path="res://PreFab/Pole.tscn" id="13_732x2"]
+[ext_resource type="PackedScene" uid="uid://dvi5okbm1d5t0" path="res://PreFab/Flag.tscn" id="14_urmn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_042gn"]
 texture = ExtResource("5_3wrl2")
@@ -1910,6 +1910,9 @@ size = Vector2(20, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48keo"]
 size = Vector2(5, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1shbt"]
+size = Vector2(54, 7)
+
 [node name="World1-1" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -1920,9 +1923,9 @@ script = ExtResource("1_exviu")
 layer = 2
 
 [node name="Pui" parent="CanvasLayer" instance=ExtResource("4_fqjak")]
-offset_left = 22.0
+offset_left = 19.0
 offset_top = -1.0
-offset_right = 22.0
+offset_right = 19.0
 offset_bottom = -1.0
 
 [node name="Bricks" type="Node" parent="." groups=["world"]]
@@ -2170,16 +2173,39 @@ target_location = Vector2(928, 140)
 position = Vector2(-7, 0)
 shape = SubResource("RectangleShape2D_48keo")
 
-[node name="Node" type="Node" parent="."]
+[node name="Enemy" type="Node" parent="."]
 
-[node name="Enemy" parent="Node" instance=ExtResource("12_h3xuv")]
+[node name="Enemy" parent="Enemy" instance=ExtResource("12_h3xuv")]
 position = Vector2(328, 198)
 
-[node name="Enemy2" parent="Node" instance=ExtResource("12_h3xuv")]
+[node name="Enemy2" parent="Enemy" instance=ExtResource("12_h3xuv")]
 position = Vector2(874, 200)
 
-[node name="Enemy3" parent="Node" instance=ExtResource("12_h3xuv")]
+[node name="Enemy3" parent="Enemy" instance=ExtResource("12_h3xuv")]
 position = Vector2(2781, 200)
+
+[node name="Death" type="Node" parent="."]
+
+[node name="Death" type="StaticBody2D" parent="Death"]
+position = Vector2(1120, 237)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death/Death"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_1shbt")
+
+[node name="Death2" type="StaticBody2D" parent="Death"]
+position = Vector2(1402, 237)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death/Death2"]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_1shbt")
+
+[node name="Death3" type="StaticBody2D" parent="Death"]
+position = Vector2(2463, 238)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death/Death3"]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_1shbt")
 
 [node name="Pole" parent="." instance=ExtResource("13_732x2")]
 position = Vector2(3176, 56)

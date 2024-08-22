@@ -117,6 +117,9 @@ func _physics_process(delta):
 		if collision.get_collider().name.contains("Coin"):
 			collision.get_collider().queue_free()
 			_game_manager.hit_coin()
+			
+		if collision.get_collider().name.contains("Death"):
+			_game_manager.death()
 
 func grow_pipeman():
 	get_tree().paused = true
