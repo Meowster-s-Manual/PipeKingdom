@@ -61,3 +61,6 @@ func hit_question_block(CollisionObject, angle, big):
 				star.position = CollisionObject.get_position()
 				_QuestionBlocks.add_child(star)
 				CollisionObject.find_children("AnimatedSprite2D")[0].play("used")
+
+func hit_coin():
+	get_coin.emit()

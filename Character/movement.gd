@@ -113,6 +113,10 @@ func _physics_process(delta):
 			if collision.get_collider().check_spawn:
 				collision.get_collider().queue_free()
 				star = true
+		
+		if collision.get_collider().name.contains("Coin"):
+			collision.get_collider().queue_free()
+			_game_manager.hit_coin()
 
 func grow_pipeman():
 	get_tree().paused = true

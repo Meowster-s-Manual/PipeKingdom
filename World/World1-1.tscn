@@ -12,8 +12,8 @@
 [ext_resource type="Script" path="res://World/EnterPortal.gd" id="10_ot65d"]
 [ext_resource type="Script" path="res://World/ExitPortal.gd" id="11_ix4fh"]
 [ext_resource type="PackedScene" uid="uid://hcesr4fg33kc" path="res://Enemy/MushroomBoy.tscn" id="12_h3xuv"]
-[ext_resource type="PackedScene" uid="uid://brev3avvy8bay" path="res://PreFab/Pole.tscn" id="13_732x2"]
-[ext_resource type="PackedScene" uid="uid://dvi5okbm1d5t0" path="res://PreFab/Flag.tscn" id="14_urmn3"]
+[ext_resource type="PackedScene" path="res://PreFab/Pole.tscn" id="13_732x2"]
+[ext_resource type="PackedScene" path="res://PreFab/Flag.tscn" id="14_urmn3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_042gn"]
 texture = ExtResource("5_3wrl2")
