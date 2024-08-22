@@ -1,7 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://c36s77opkl7on"]
+[gd_scene load_steps=35 format=3 uid="uid://c36s77opkl7on"]
 
 [ext_resource type="Texture2D" uid="uid://d0hk8c333qqhl" path="res://Assets/Sprites/pipeman.png" id="1_08ewk"]
 [ext_resource type="Script" path="res://Character/movement.gd" id="1_mcu3f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g10rh"]
+atlas = ExtResource("1_08ewk")
+region = Rect2(208, 0, 16, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emhk4"]
 atlas = ExtResource("1_08ewk")
@@ -26,6 +30,10 @@ region = Rect2(112, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8dsu"]
 atlas = ExtResource("1_08ewk")
 region = Rect2(304, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eemu"]
+atlas = ExtResource("1_08ewk")
+region = Rect2(208, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0fat"]
 atlas = ExtResource("1_08ewk")
@@ -115,6 +123,14 @@ region = Rect2(128, 32, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_g10rh")
+}],
+"loop": true,
+"name": &"big_humping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_emhk4")
 }],
 "loop": true,
@@ -170,6 +186,14 @@ animations = [{
 "loop": false,
 "name": &"growing",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2eemu")
+}],
+"loop": true,
+"name": &"humping",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -286,7 +310,7 @@ script = ExtResource("1_mcu3f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o44eq")
-animation = &"idle"
+animation = &"big_humping"
 autoplay = "idle"
 
 [node name="SmallCollision" type="CollisionShape2D" parent="."]

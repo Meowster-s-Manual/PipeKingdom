@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://brev3avvy8bay"]
+
+[ext_resource type="Texture2D" uid="uid://c8xy2melveskw" path="res://Assets/Tilemap/tiles-3.png" id="1_mj8v8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x20uh"]
+size = Vector2(2, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odl77"]
+atlas = ExtResource("1_mj8v8")
+region = Rect2(256, 144, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdgjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odl77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Pole" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 64)
+shape = SubResource("RectangleShape2D_x20uh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_fdgjo")
